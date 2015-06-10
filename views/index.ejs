@@ -40,7 +40,7 @@
     Templates[div.id] = Handlebars.compile(div.innerHTML);
   });
 </script>
-<% if (app.get('env') === "production") { %>
+<% if (process.env.NODE_ENV === "production") { %>
   <script src='/dist/client.js'></script>
 <% } else { %>
   <script src='/client/app.js'></script>
