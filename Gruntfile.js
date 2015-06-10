@@ -3,6 +3,14 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
+      client: {
+        src: ['public/client/*.js'],
+        dest: 'dist/client.js'
+      },
+      lib: {
+        src: ['public/lib/*.js'],
+        dest: 'dist/lib.js'
+      }
     },
 
     mochaTest: {
