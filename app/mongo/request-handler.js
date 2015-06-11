@@ -26,7 +26,7 @@ exports.logoutUser = function(req, res) {
 };
 
 exports.fetchLinks = function(req, res) {
-  Links.reset().fetch().then(function(links) {
+  Link.find().exec().then(function(links) {
     res.send(200, links.models);
   })
 };

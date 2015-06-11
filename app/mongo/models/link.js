@@ -1,5 +1,6 @@
-// var db = require('../config');
-// var crypto = require('crypto');
+var db = require('../config');
+
+var Link = mongoose.model("Link", db.urlSchema);
 
 // var Link = db.Model.extend({
 //   tableName: 'urls',
@@ -16,4 +17,4 @@
 //   }
 // });
 
-// module.exports = Link;
+module.exports = Link;

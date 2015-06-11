@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var crypto = require('crypto');
+
 var ObjectId = mongoose.Schema.Types.ObjectId;
 var localDb = 'mongodb://localhost/local'; //local is the db name
 var serverDb = 'mongodb://MongoLab-z:t7y35yBebLREOQZ.fJKpSNgkG2sXDjoNZCjwK06zHLA-@ds036638.mongolab.com:36638/MongoLab-z';
@@ -9,24 +11,30 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function(callback) {
   console.log('db connection opened');
 });
-module.exports = db;
-var urls = mongoose.Schema({
+
+exports.urlSchema = db.Schema({
   // _id: ObjectId,
   url: String,
   base_url: String,
   code: String,
+  // code: { type: String, default: function() {
+  //   var shasum = crypto.createHash('sha1');
+  //   shasum.update(model.get('url'));
+  //   model.set('code', shasum.digest('hex').slice(0, 5));
+  // } },
   title: String,
-  visits: Number,
+  visits: { type: Number, default: 0 },
   timestamp: { type: Date, default: Date.now }
 });
 
-var users = mongoose.Schema({
+exports.userSchema = mongoose.Schema({
   // _id: ObjectId,
   username: String,
   password: String,
   timestamp: { type: Date, default: Date.now }
 });
 
+// module.exports = db;
 
 // db.knex.schema.hasTable('urls').then(function(exists) {
 //   if (!exists) {
