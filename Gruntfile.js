@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
 
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
@@ -143,6 +144,10 @@ module.exports = function(grunt) {
     'uglify',
     'cssmin'
   ]);
+  //TODO
+  // function() {
+  //   grunt.warn('a task failed');
+  // }
 
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
@@ -156,6 +161,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deploy', [
   ]);
+
 
 
 };
