@@ -3,12 +3,12 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
-      client: {
-        src: ['public/client/*.js'],
-        dest: 'public/dist/client.js'
-      },
+      // client: {
+      //   src: ['public/client/*.js'],
+      //   dest: 'public/dist/client.js'
+      // },
       lib: {
-        src: ['public/lib/jquery.js','public/lib/underscore.js','public/lib/backbone.js','public/lib/handlebars.js'],
+        src: ['public/lib/jquery.js','public/lib/underscore.js','public/lib/backbone.js','public/lib/handlebars.js', 'public/client/*.js'],
         dest: 'public/dist/lib.js'
       }
     },
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
     uglify: {
       app: {
         files: {
-          'public/dist/app.min.js': ['public/dist/lib.js', 'public/dist/client.js']
+          'public/dist/app.min.js': ['public/dist/lib.js']
         }
       }
       // lib: { //client depends on lib but doesn't work if mangled set
