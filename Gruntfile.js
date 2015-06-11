@@ -11,7 +11,13 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['public/lib/underscore.js','public/lib/handlebars.js','public/lib/jquery.js','public/lib/backbone.js', 'public/client/**/*.js'],
+        src: [
+          'public/lib/jquery.js',
+          'public/lib/underscore.js',
+          'public/lib/backbone.js',
+          'public/lib/handlebars.js',
+          'public/client/**/*.js'
+        ],
         dest: 'public/dist/lib.js'
       }
     },
@@ -52,6 +58,11 @@ module.exports = function(grunt) {
     jshint: {
       files: [
         // Add filespec list here
+        'public/client/*.js',
+        'test/ServerSpec.js',
+        'app/*.js',
+        'lib/*.js',
+        '*.js'
       ],
       options: {
         force: 'true',
@@ -64,6 +75,12 @@ module.exports = function(grunt) {
     },
 
     cssmin: {
+      target: {
+        files: {
+          'public/dist/style.min.css': 'public/style.css'
+        }
+      }
+
     },
 
     watch: {
@@ -120,8 +137,11 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'jshint',
+    'mochaTest',
     'concat',
-    'uglify'
+    'uglify',
+    'cssmin'
   ]);
 
   grunt.registerTask('upload', function(n) {
