@@ -29,16 +29,21 @@ module.exports = function(grunt) {
     },
 
     uglify: {
-      client: {
+      app: {
         files: {
-          'public/dist/client.min.js': ['public/client/*.js']
-        }
-      },
-      lib: {
-        files: {
-          'public/dist/lib.min.js': ['public/lib/*.js']
+          'public/dist/app.min.js': ['public/lib/*.js', 'public/client/*.js']
         }
       }
+      // lib: { //client depends on lib but doesn't work if mangled set
+      //   files: {
+      //     'public/dist/lib.min.js': ['public/lib/*.js']
+      //   }
+      // },
+      // client: {
+      //   files: {
+      //     'public/dist/client.min.js': ['public/client/*.js']
+      //   }
+      // }
     },
 
     jshint: {

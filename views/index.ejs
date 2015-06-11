@@ -40,9 +40,7 @@
     Templates[div.id] = Handlebars.compile(div.innerHTML);
   });
 </script>
-<% if (process.env.NODE_ENV === "production") { %>
-  <script src='/dist/client.min.js'></script>
-<% } else { %>
+<% if (process.env.NODE_ENV !== "production") { %>
   <script src='/client/app.js'></script>
   <script src='/client/link.js'></script>
   <script src='/client/links.js'></script>
