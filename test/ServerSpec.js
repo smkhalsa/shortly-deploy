@@ -1,11 +1,12 @@
+
 var request = require('supertest');
 var express = require('express');
 var expect = require('chai').expect;
 var app = require('../server-config.js');
 
-var db = require('../app/config');
-var User = require('../app/models/user');
-var Link = require('../app/models/link');
+var db = require('../app/mongo/config');
+var User = require('../app/mongo/models/user');
+var Link = require('../app/mongo/models/link');
 
 /////////////////////////////////////////////////////
 // NOTE: these tests are designed for mongo!

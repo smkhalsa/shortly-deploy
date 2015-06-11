@@ -1,8 +1,9 @@
+var useMongo = false;
 var express = require('express');
 var partials = require('express-partials');
 var util = require('./lib/utility');
 
-var handler = require('./lib/request-handler');
+var handler = require('./app/' + (useMongo ? 'mongo' : 'sqlite') + '/request-handler');
 
 var app = express();
 
