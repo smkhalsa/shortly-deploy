@@ -66,7 +66,6 @@ module.exports = function(grunt) {
         '*.js'
       ],
       options: {
-        force: 'true',
         jshintrc: '.jshintrc',
         ignores: [
           'public/lib/**/*.js',

@@ -1,4 +1,4 @@
-var useMongo = false;
+var useMongo = true;
 var express = require('express');
 var partials = require('express-partials');
 var util = require('./lib/utility');
